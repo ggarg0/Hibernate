@@ -16,35 +16,31 @@ public class HibernateCRUD {
 
 	public static void main(String[] args) {
 
-	/*	int i=0;
-		
 		@SuppressWarnings("deprecation")
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session=sessionFactory.openSession();
 		session.beginTransaction();
-		for (i=0; i<10;i++)
-		{
+	
+		int i=0;
+		for (i=0; i<10;i++) {
 			UserDetails user= new UserDetails();
 			user.setUserName("GAURAV "+ i);
 			user.setJobDescription("Infosys");
 			session.save(user);
-			
 		}
 		
 		UserDetails user = (UserDetails) session.get(UserDetails.class,5);
 		System.out.println("User details : " + user.getUserName());
-		//session.delete(user);
+	//	session.delete(user);
 		user.setUserName("Gaurav Garg");
-		//session.update(user);
+		session.update(user);
 		session.getTransaction().commit();
 	
 		session.close();
-		*/
+	
 		
-		@SuppressWarnings("deprecation")
-		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-		Session session=sessionFactory.openSession();
-		session.beginTransaction();
+		/*
+		 
 		String UserId="3";
 		String UserName="Gaurav Garg";
 		
@@ -59,15 +55,15 @@ public class HibernateCRUD {
 		//Query query=session.getNamedQuery("UserDetails.byName");
 		//query.setInteger(0,2);
 	//		query.setString("username", "Gaurav Garg");
-		Criteria criteria = session.createCriteria(UserDetails.class);
-		criteria.add(Restrictions.or(Restrictions.ilike("UserName", "%garg%"),
-				Restrictions.between("UserId", 1, 3)));
+	//	Criteria criteria = session.createCriteria(UserDetails.class);
+	//	criteria.add(Restrictions.or(Restrictions.ilike("UserName", "%garg%"),
+	//			Restrictions.between("UserId", 1, 3)));
 		
 	/*	criteria.add(Restrictions.ilike("UserName", "%aurav%"))
 		.add(Restrictions.between("UserId", 2, 7));
 		*/
 		
-		List<UserDetails> user = (List<UserDetails>) criteria.list();
+	//	List<UserDetails> user = (List<UserDetails>) criteria.list();
 		//List<UserDetails> user = (List<UserDetails>) query.list();
 		/*List<Object[]> user = (List<Object[]>)query.list();
 		 * 
@@ -83,9 +79,9 @@ public class HibernateCRUD {
 		    System.out.println(firstName + id);
 		}*/
 		
-	for(UserDetails u : user)		
+	/*for(UserDetails u : user)		
 		System.out.println(u.getUserName()+u.getJobDescription()+u.getUserId());
 		
+	}*/
 	}
-
 }
